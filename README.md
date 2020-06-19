@@ -2,18 +2,50 @@
 
 # gawk
 
+A tool for handling simple data-reformatting jobs.  See [documentation](https://www.gnu.org/software/gawk/)
+
 ## Maintainers
 
-* The Habitat Maintainers: <humans@habitat.sh>
+* The Core Planners: <chef-core-planners@chef.io>
 
 ## Type of Package
 
 Binary package
 
-## Usage
+### Use as Dependency
+
+Binary packages can be set as runtime or build time dependencies. See [Defining your dependencies](https://www.habitat.sh/docs/developing-packages/developing-packages/#sts=Define%20Your%20Dependencies) for more information.
+
+To add core/gawk as a dependency, you can add one of the following to your plan file.
+
+##### Buildtime Dependency
+
+> pkg_build_deps=(core/gawk)
+
+##### Runtime dependency
+
+> pkg_deps=(core/gawk)
+
+### Use as Tool
+
+#### Installation
+
+To install this plan, you should run the following commands to first install, and then link the binaries this plan creates.
+
+``hab pkg install core/gawk --binlink``
+
+will add the following binaries to the PATH:
+
+* /bin/awk
+* /bin/gawk
+
+#### Using an example binary
+
+You can now use the binary as normal.  For example:
+
+``/bin/gawk --help`` or ``gawk --help``
 
 ```bash
-$ hab pkg install core/gawk --binlink
 $ gawk --help
 Usage: gawk [POSIX or GNU style options] -f progfile [--] file ...
 Usage: gawk [POSIX or GNU style options] [--] 'program' file ...
@@ -25,38 +57,6 @@ Short options:          GNU long options: (extensions)
         -b                      --characters-as-bytes
         -c                      --traditional
         -C                      --copyright
-        -d[file]                --dump-variables[=file]
-        -D[file]                --debug[=file]
-        -e 'program-text'       --source='program-text'
-        -E file                 --exec=file
-        -g                      --gen-pot
-        -h                      --help
-        -i includefile          --include=includefile
-        -l library              --load=library
-        -L[fatal|invalid]       --lint[=fatal|invalid]
-        -M                      --bignum
-        -N                      --use-lc-numeric
-        -n                      --non-decimal-data
-        -o[file]                --pretty-print[=file]
-        -O                      --optimize
-        -p[file]                --profile[=file]
-        -P                      --posix
-        -r                      --re-interval
-        -s                      --no-optimize
-        -S                      --sandbox
-        -t                      --lint-old
-        -V                      --version
-
-To report bugs, see node `Bugs' in `gawk.info'
-which is section `Reporting Problems and Bugs' in the
-printed version.  This same information may be found at
-https://www.gnu.org/software/gawk/manual/html_node/Bugs.html.
-PLEASE do NOT try to report bugs by posting in comp.lang.awk.
-
-gawk is a pattern scanning and processing language.
-By default it reads standard input and writes standard output.
-
-Examples:
-        gawk '{ sum += $1 }; END { print sum }' file
-        gawk -F: '{ print $1 }' /etc/passwd
+...
+...
 ```
