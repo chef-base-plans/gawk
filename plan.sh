@@ -1,6 +1,6 @@
 pkg_name=gawk
 pkg_origin=core
-pkg_version=5.1.0
+pkg_version=5.0.1
 pkg_maintainer="The Habitat Maintainers <humans@habitat.sh>"
 pkg_description="\
 The awk utility interprets a special-purpose programming language that makes \
@@ -10,7 +10,7 @@ code.\
 pkg_upstream_url="http://www.gnu.org/software/gawk/"
 pkg_license=('GPL-3.0-or-later')
 pkg_source="http://ftp.gnu.org/gnu/$pkg_name/${pkg_name}-${pkg_version}.tar.gz"
-pkg_shasum="03a0360edcd84bec156fe211bbc4fc8c78790973ce4e8b990a11d778d40b1a26"
+pkg_shasum="625bf3718e25a84dc4486135d5cb5388174682362c70107fd13f21572f5603bb"
 pkg_deps=(
   core/glibc
   core/mpfr
